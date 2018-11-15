@@ -1,0 +1,18 @@
+{
+  "name": "flow-runtime-generators",
+  "version": "0.0.1",
+  "description": "object generation based on flow description",
+  "main": "src/index.js",
+  "repository": "git@github.com:kanekotic/flow-runtime-generators.git",
+  "author": "kanekotic <alvarojosepl@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "flow-runtime": "0.17.0"
+  },
+  "devDependencies": {
+    "coveralls": "3.0.2",
+    "faker": "4.1.0",
+    "jest": "23.6.0"
+  }
+}
