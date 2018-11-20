@@ -43,7 +43,6 @@ describe('flow generator', () => {
     });
     
     test('should allow primitive numerical types like 2', () => {
-        const numberLiteral = faker.random.number()
         type test = {
             foo: 2
         }
@@ -53,7 +52,6 @@ describe('flow generator', () => {
     });
     
     test('should allow primitive numerical types like 3', () => {
-        const numberLiteral = faker.random.number()
         type test = {
             foo: 3
         }
@@ -66,9 +64,24 @@ describe('flow generator', () => {
         type test = {
             foo: 42 | 7 | 32 | "Some" | "Some Other" | false
         }
-        test.properties.forEach(element => console.log(element.value.typeName))
         let result = fake.type(test)
         expect(possibleValues).toContainEqual(result.foo)
+    });
+    
+    test('should allow maybe types', () => {
+        type test = {
+            foo: ?string
+        }
+        let result = fake.type(test)
+        expect(typeof result.foo).toBe("string")
+    });
+    
+    test.skip('should allow optional types', () => {
+        type test = {
+            foo?: int
+        }
+        let result = fake.type(test)//{typeName: "TypeReference", name: int}
+        expect(typeof result.foo).toBe("number")
     });
 
     test('should work for multiple properties', () => {

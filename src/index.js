@@ -8,6 +8,7 @@ const mapper = {
   "VoidType": () => undefined,
   "NumericLiteralType": content => content.value,
   "UnionType": content => content.types.map(option => option.value)[Math.floor(Math.random()*content.types.length)],
+  "NullableType": content => mapper[content.type.typeName](),
 }
   
 const type = (base) => 
