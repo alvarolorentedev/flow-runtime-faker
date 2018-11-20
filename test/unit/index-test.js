@@ -82,6 +82,10 @@ describe('flow generator', () => {
     });
 });
 
+//missing:
+// - https://flow.org/en/docs/types/primitives/#toc-maybe-types
+// - https://flow.org/en/docs/types/primitives/#toc-optional-object-properties
+
 // let unfold = (type) =>  type.properties.map(property => {
 //   if(property.value.typeName ==="TypeAlias")
 //       return {key: property.key, type: property.value.typeName, metadata : { content: unfold(property.value) }}
