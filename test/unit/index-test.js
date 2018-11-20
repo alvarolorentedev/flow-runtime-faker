@@ -41,6 +41,35 @@ describe('flow generator', () => {
         let result = fake.type(test)
         expect(typeof result.foo).toBe(typeof undefined)
     });
+    
+    test('should allow primitive numerical types like 2', () => {
+        const numberLiteral = faker.random.number()
+        type test = {
+            foo: 2
+        }
+        test.properties.forEach(element => console.log(element.value.typeName))
+        let result = fake.type(test)
+        expect(result.foo).toBe(2)
+    });
+    
+    test('should allow primitive numerical types like 3', () => {
+        const numberLiteral = faker.random.number()
+        type test = {
+            foo: 3
+        }
+        let result = fake.type(test)
+        expect(result.foo).toBe(3)
+    });
+    
+    test('should allow union of primitives types', () => {
+        const possibleValues = [42, 7, 32, "Some", "Some Other", false]
+        type test = {
+            foo: 42 | 7 | 32 | "Some" | "Some Other" | false
+        }
+        test.properties.forEach(element => console.log(element.value.typeName))
+        let result = fake.type(test)
+        expect(possibleValues).toContainEqual(result.foo)
+    });
 
     test('should work for multiple properties', () => {
         type test = {
