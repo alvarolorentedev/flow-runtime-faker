@@ -1,6 +1,6 @@
 {
   "name": "flow-runtime-faker",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "object faker generation based on flow description",
   "main": "src/index.js",
   "scripts": {
@@ -15,7 +15,13 @@
     "deploy:push": "git push && git push --tags",
     "preversion": "yarn test"
   },
-  "keywords": ["faker", "flow", "flow-runtime", "property", "testing"],
+  "keywords": [
+    "faker",
+    "flow",
+    "flow-runtime",
+    "property",
+    "testing"
+  ],
   "repository": "git@github.com:kanekotic/flow-runtime-faker.git",
   "author": "kanekotic <alvarojosepl@gmail.com>",
   "license": "MIT",
