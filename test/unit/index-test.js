@@ -6,7 +6,7 @@ describe('flow generator', () => {
         type test = {
             foo: number
         }
-        let result = fake.type(test)
+        let result = fake(test)
         expect(typeof result.foo).toBe("number")
     });
 
@@ -14,7 +14,7 @@ describe('flow generator', () => {
         type test = {
             foo: string
         }
-        let result = fake.type(test)
+        let result = fake(test)
         expect(typeof result.foo).toBe("string")
     });
 
@@ -22,7 +22,7 @@ describe('flow generator', () => {
         type test = {
             foo: boolean
         }
-        let result = fake.type(test)
+        let result = fake(test)
         expect(typeof result.foo).toBe("boolean")
     });
 
@@ -30,7 +30,7 @@ describe('flow generator', () => {
         type test = {
             foo: null
         }
-        let result = fake.type(test)
+        let result = fake(test)
         expect(typeof result.foo).toBe(typeof null)
     });
 
@@ -38,7 +38,7 @@ describe('flow generator', () => {
         type test = {
             foo: void
         }
-        let result = fake.type(test)
+        let result = fake(test)
         expect(typeof result.foo).toBe(typeof undefined)
     });
     
@@ -47,7 +47,7 @@ describe('flow generator', () => {
             foo: 2
         }
         test.properties.forEach(element => console.log(element.value.typeName))
-        let result = fake.type(test)
+        let result = fake(test)
         expect(result.foo).toBe(2)
     });
     
@@ -55,7 +55,7 @@ describe('flow generator', () => {
         type test = {
             foo: 3
         }
-        let result = fake.type(test)
+        let result = fake(test)
         expect(result.foo).toBe(3)
     });
     
@@ -64,24 +64,35 @@ describe('flow generator', () => {
         type test = {
             foo: 42 | 7 | 32 | "Some" | "Some Other" | false
         }
-        let result = fake.type(test)
+        let result = fake(test)
         expect(possibleValues).toContainEqual(result.foo)
+    });
+
+    test('should allow union of primitives types', () => {
+        const possibleValues = ['boolean', "string", "number"]
+        type test = {
+            foo: number | string | boolean
+        }
+        let result = fake(test)
+        expect(possibleValues).toContainEqual(typeof result.foo)
     });
     
     test('should allow maybe types', () => {
+        const possibleValues = ['string', typeof null, 'undefined']
         type test = {
-            foo: ?string
+            foo: ?string,
         }
-        let result = fake.type(test)
-        expect(typeof result.foo).toBe("string")
+        let result = fake(test)
+        expect(possibleValues).toContainEqual(typeof result.foo)
     });
     
-    test.skip('should allow optional types', () => {
+    test('should allow optional types', () => {
+        const possibleValues = ['number', 'undefined']
         type test = {
-            foo?: int
+            foo?: number
         }
-        let result = fake.type(test)//{typeName: "TypeReference", name: int}
-        expect(typeof result.foo).toBe("number")
+        let result = fake(test)
+        expect(possibleValues).toContainEqual(typeof result.foo)
     });
 
     test('should work for multiple properties', () => {
@@ -89,15 +100,20 @@ describe('flow generator', () => {
             foo: number,
             bar : string
         }
-        let result = fake.type(test)
+        let result = fake(test)
         expect(typeof result.foo).toBe("number")
         expect(typeof result.bar).toBe("string")
     });
-});
 
-//missing:
-// - https://flow.org/en/docs/types/primitives/#toc-maybe-types
-// - https://flow.org/en/docs/types/primitives/#toc-optional-object-properties
+    test('should work for array properties', () => {
+        type test = {
+            foo: number[],
+        }
+        let result = fake(test)
+        expect(Array.isArray(result.foo)).toBeTruthy()
+    });
+
+});
 
 // let unfold = (type) =>  type.properties.map(property => {
 //   if(property.value.typeName ==="TypeAlias")
