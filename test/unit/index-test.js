@@ -42,7 +42,7 @@ describe('flow generator', () => {
         expect(typeof result.foo).toBe(typeof undefined)
     });
     
-    test('should allow primitive numerical types like 2', () => {
+    test('should allow primitive numerical types like', () => {
         type test = {
             foo: 2
         }
@@ -50,15 +50,23 @@ describe('flow generator', () => {
         let result = fake(test)
         expect(result.foo).toBe(2)
     });
-    
-    test('should allow primitive numerical types like 3', () => {
+
+    test('should allow primitive string types', () => {
         type test = {
-            foo: 3
+            foo: "pepe"
         }
         let result = fake(test)
-        expect(result.foo).toBe(3)
+        expect(result.foo).toBe("pepe")
     });
-    
+
+    test('should allow primitive boolean types', () => {
+        type test = {
+            foo: true
+        }
+        let result = fake(test)
+        expect(result.foo).toBe(true)
+    });
+
     test('should allow union of primitives types', () => {
         const possibleValues = [42, 7, 32, "Some", "Some Other", false]
         type test = {
@@ -104,6 +112,24 @@ describe('flow generator', () => {
         expect(typeof result.foo).toBe("number")
         expect(typeof result.bar).toBe("string")
     });
+    
+    test('should work for mixed properties', () => {
+        const possibleValues = ['boolean', "string", "number", typeof null]
+        type test = {
+            foo: mixed
+        }
+        let result = fake(test)
+        expect(possibleValues).toContainEqual(typeof result.foo)
+    });
+
+    test('should work for any properties', () => {
+        const possibleValues = ['boolean', "string", "number", typeof null, 'undefined']
+        type test = {
+            foo: any
+        }
+        let result = fake(test)
+        expect(possibleValues).toContainEqual(typeof result.foo)
+    });
 
     test('should work for array properties', () => {
         type test = {
@@ -111,6 +137,26 @@ describe('flow generator', () => {
         }
         let result = fake(test)
         expect(Array.isArray(result.foo)).toBeTruthy()
+    });
+
+    test('should work for function definitions', () => {
+        type someOtherType ={
+            bar: number
+        }
+        type test = {
+            foo: (a:number, b:string) => someOtherType
+        }
+        let result = fake(test)
+        expect(typeof result.foo()).toBe('object')
+        expect(typeof result.foo().bar).toBe('number')
+    });
+
+    test('should work for function definitions', () => {
+        type test = {
+            foo: (a:number) => number
+        }
+        let result = fake(test)
+        expect(typeof result.foo()).toBe('number')
     });
 
     test('should work for type alias properties', () => {
