@@ -38,3 +38,21 @@ type myType = {
 }
 */
 ```
+
+## Support
+
+| Done? | Flow Type    |
+|-------|--------------|
+|   ✅  | number       |
+|   ✅  | string       |
+|   ✅  | boolean      |
+|   ✅  | null         |
+|   ✅  | void         |
+|   ✅  | numeric literals     |
+|       | string literals     |
+|       | boolean literals     |
+|   ✅  | union        |
+|   ✅  | maybe        |
+|   ✅  | optional     |
+|   ✅  | arrays       |
+|   ✅  | subtypes     |
