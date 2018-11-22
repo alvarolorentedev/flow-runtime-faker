@@ -113,14 +113,16 @@ describe('flow generator', () => {
         expect(Array.isArray(result.foo)).toBeTruthy()
     });
 
+    test('should work for type alias properties', () => {
+        type otherType = {
+            bar: number
+        }
+        type test = {
+            foo: otherType,
+        }
+        let result = fake(test)
+        expect(typeof result.foo).toBe('object')
+        expect(typeof result.foo.bar).toBe('number')
+    });
+
 });
-
-// let unfold = (type) =>  type.properties.map(property => {
-//   if(property.value.typeName ==="TypeAlias")
-//       return {key: property.key, type: property.value.typeName, metadata : { content: unfold(property.value) }}
-//   else if(property.value.typeName ==="ArrayType")
-//       return {key: property.key, type: property.value.typeName, metadata : {type: property.value.elementType.typeName}}
-//   else
-//       return {key: property.key, type: property.value.typeName}
-
-// })

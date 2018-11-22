@@ -11,7 +11,8 @@ const mapper = {
   "NumericLiteralType": content => content.value,
   "UnionType": content => content.types.map(typeMapper)[Math.floor(Math.random()*content.types.length)],
   "NullableType": content => [mapper[content.type.typeName](), null, undefined][Math.floor(Math.random()*3)],
-  "ArrayType": content => Array(faker.random.number(1000)).fill(0).map(_ => mapper[content.elementType.typeName]())
+  "ArrayType": content => Array(faker.random.number(1000)).fill(0).map(_ => mapper[content.elementType.typeName]()),
+  "TypeAlias": content => fake(content)
 }
   
 const valueGenerator = ({optional, content})  => optional
