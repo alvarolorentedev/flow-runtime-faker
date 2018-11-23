@@ -8,6 +8,21 @@ Type definitions in javascript can help adding type safety for classes. But shou
 
 `yarn add flow-runtime-faker -D` or `npm install flow-runtime-faker --save-dev`
 
+if you use only `flow` and not `flow-runtime`. You can use this plugin by:
+ - `yarn add flow-runtime babel-plugin-flow-runtime -D` or `npm install flow-runtime babel-plugin-flow-runtime --save-dev`
+ - add the next configuration for tests phase on your `.babelrc`
+ 
+ ```json
+    {
+    ...
+     "env": {
+        "test": {
+            "plugins": [["flow-runtime", { "assert": false, "annotate": false }]]
+        }
+      }
+    }
+ ```
+
 ## Usage
 
 ```js
