@@ -7,7 +7,10 @@ export default {
     plugins: [
         babel(),
         resolve(),
-        commonjs()
+        commonjs({
+            namedExports: { 'node_modules/faker/index.js': ['random'] },
+            
+        })
     ],
     output: [
     {
