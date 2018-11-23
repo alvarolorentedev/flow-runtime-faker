@@ -62,3 +62,6 @@ typings/
 
 # development environment
 .vscode
+
+# deploy floder
+dist

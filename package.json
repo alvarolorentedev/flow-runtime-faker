@@ -2,8 +2,10 @@
   "name": "flow-runtime-faker",
   "version": "0.0.3",
   "description": "object faker generation based on flow description",
-  "main": "src/index.js",
+  "main": "dist/flow-runtime-faker.js",
   "scripts": {
+    "prepare": "npm run build",
+    "build": "rollup -c",
     "test": "jest",
     "test:dev": "jest --watchAll test/unit",
     "test:int": "jest test/integration",
@@ -42,7 +44,9 @@
     "babel-plugin-flow-runtime": "0.17.0",
     "coveralls": "3.0.2",
     "faker": "4.1.0",
-    "jest": "23.6.0"
+    "jest": "23.6.0",
+    "rollup": "0.67.3",
+    "rollup-plugin-babel": "4.0.3"
   },
   "jest": {
     "testMatch": [
