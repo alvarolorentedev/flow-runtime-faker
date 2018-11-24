@@ -1,5 +1,10 @@
 # ![logo](https://user-images.githubusercontent.com/3071208/48891796-a7796780-ee3c-11e8-93a0-69b06f1a1198.png)
-
+[![Build Status](https://travis-ci.org/kanekotic/flow-runtime-faker.svg?branch=master)](https://travis-ci.org/kanekotic/flow-runtime-faker)
+[![Coverage Status](https://coveralls.io/repos/github/kanekotic/flow-runtime-faker/badge.svg?branch=master)](https://coveralls.io/github/kanekotic/flow-runtime-faker?branch=master)
+[![npm](https://img.shields.io/npm/dy/flow-runtime-faker.svg)](https://github.com/kanekotic/flow-runtime-faker)
+[![GitHub license](https://img.shields.io/github/license/kanekotic/flow-runtime-faker.svg)](https://github.com/kanekotic/flow-runtime-faker/blob/master/LICENSE)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/kanekotic/flow-runtime-faker/graphs/commit-activity)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/kanekotic/)
 ## Motivation 
 
 Type definitions in javascript can help adding type safety for classes. But should not make more complicated property based testing. This package aims to generate random objects based on their flow definitions 
