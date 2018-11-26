@@ -15,14 +15,18 @@ const mapper = {
   "BooleanLiteralType": content => content.value,
   "UnionType": content => content.types.map(typeMapper)[Math.floor(Math.random()*content.types.length)],
   "NullableType": content => [mapper[content.type.typeName](), null, undefined][Math.floor(Math.random()*3)],
-  "ArrayType": content => Array(faker.random.number(1000)).fill(0).map(_ => mapper[content.elementType.typeName]()),
-  "TypeAlias": content => fake(content),
-  "FunctionType": content => () => content.returnType.type.typeName === "TypeAlias"
-                                      ? fake(content.returnType.type)
-                                      : mapper[content.returnType.type.typeName](content.returnType.type),
+  "ArrayType": content => Array(faker.random.number(1000)).fill(0).map(_ => internalTypeSelector(content.elementType)),
+  "TypeAlias": content  => fake(content),
+  "FunctionType": content => () => internalTypeSelector(content.returnType.type),
 }
-  
-const valueGenerator = ({optional, content})  => optional
+
+const internalTypeSelector = (type) =>
+  type.typeName === "TypeAlias"
+    ? fake(type)
+    : mapper[type.typeName](type)
+
+
+const valueGenerator = ({optional, content}) => optional
     ? [mapper[content.typeName](content), undefined][Math.floor(Math.random() * 2)]
     : mapper[content.typeName](content)
 

@@ -137,9 +137,23 @@ describe('flow generator', () => {
         }
         let result = fake(test)
         expect(Array.isArray(result.foo)).toBeTruthy()
+        expect(typeof result.foo[Math.floor(Math.random()*result.foo.length)]).toBe('number')
     });
 
-    test('should work for function definitions', () => {
+    test('should work for array properties of complex types', () => {
+        type someOtherType ={
+            bar: number
+        }
+        type test = {
+            foo: someOtherType[],
+        }
+        let result = fake(test)
+        expect(Array.isArray(result.foo)).toBeTruthy()
+        expect(typeof result.foo[Math.floor(Math.random()*result.foo.length)]).toBe('object')
+        expect(typeof result.foo[Math.floor(Math.random()*result.foo.length)].bar).toBe('number')
+    });
+
+    test('should work for function definitions of complex types', () => {
         type someOtherType ={
             bar: number
         }
