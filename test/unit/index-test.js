@@ -84,11 +84,38 @@ describe('flow generator', () => {
         let result = fake(test)
         expect(possibleValues).toContainEqual(typeof result.foo)
     });
+
+    test('should allow union with complex types', () => {
+        const possibleValues = ["string", "number"]
+        type someOtherType = {
+            bar: number
+        }
+        type someMoreType = {
+            bar: string
+        }
+        type test = {
+            foo: someMoreType | someOtherType
+        }
+        let result = fake(test)
+        expect(possibleValues).toContainEqual(typeof result.foo.bar)
+    });
     
     test('should allow maybe types', () => {
         const possibleValues = ['string', typeof null, 'undefined']
         type test = {
             foo: ?string,
+        }
+        let result = fake(test)
+        expect(possibleValues).toContainEqual(typeof result.foo)
+    });
+    
+    test('should allow maybe types of complex', () => {
+        const possibleValues = ['object', typeof null, 'undefined']
+        type otherType = {
+            bar: 32
+        }
+        type test = {
+            foo: ?otherType,
         }
         let result = fake(test)
         expect(possibleValues).toContainEqual(typeof result.foo)
