@@ -1,6 +1,6 @@
 {
   "name": "flow-runtime-faker",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "object faker generation based on flow description",
   "main": "dist/flow-runtime-faker.js",
   "scripts": {
