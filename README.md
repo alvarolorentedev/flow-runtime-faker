@@ -1,6 +1,6 @@
 # ![logo](https://user-images.githubusercontent.com/3071208/48891796-a7796780-ee3c-11e8-93a0-69b06f1a1198.png)
 [![Build Status](https://travis-ci.org/kanekotic/flow-runtime-faker.svg?branch=master)](https://travis-ci.org/kanekotic/flow-runtime-faker)
-[![Coverage Status](https://coveralls.io/repos/github/kanekotic/flow-runtime-faker/badge.svg?branch=master)](https://coveralls.io/github/kanekotic/flow-runtime-faker?branch=master)
+[![codecov](https://codecov.io/gh/kanekotic/flow-runtime-faker/branch/master/graph/badge.svg)](https://codecov.io/gh/kanekotic/flow-runtime-faker)
 [![npm](https://img.shields.io/npm/dt/flow-runtime-faker.svg)](https://github.com/kanekotic/flow-runtime-faker)
 [![GitHub license](https://img.shields.io/github/license/kanekotic/flow-runtime-faker.svg)](https://github.com/kanekotic/flow-runtime-faker/blob/master/LICENSE)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/kanekotic/flow-runtime-faker/graphs/commit-activity)
