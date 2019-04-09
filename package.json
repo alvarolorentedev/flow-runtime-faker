@@ -35,19 +35,19 @@
     "flow-runtime": "0.17.0"
   },
   "devDependencies": {
-    "@babel/core": "7.4.0",
-    "@babel/preset-env": "7.4.2",
+    "@babel/core": "7.4.3",
+    "@babel/preset-env": "7.4.3",
     "@babel/preset-flow": "7.0.0",
     "babel-cli": "6.26.0",
     "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "24.6.0",
+    "babel-jest": "24.7.1",
     "babel-plugin-flow-runtime": "0.18.0",
-    "codecov": "3.2.0",
-    "jest": "24.6.0",
-    "rollup": "1.8.0",
+    "codecov": "3.3.0",
+    "jest": "24.7.1",
+    "rollup": "1.9.0",
     "rollup-plugin-babel": "4.3.2",
-    "rollup-plugin-commonjs": "9.2.3",
-    "rollup-plugin-node-resolve": "4.0.1"
+    "rollup-plugin-commonjs": "9.3.4",
+    "rollup-plugin-node-resolve": "4.2.1"
   },
   "jest": {
     "testMatch": [
