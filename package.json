@@ -35,16 +35,16 @@
     "flow-runtime": "0.17.0"
   },
   "devDependencies": {
-    "@babel/core": "7.9.0",
-    "@babel/preset-env": "7.9.5",
+    "@babel/core": "7.9.6",
+    "@babel/preset-env": "7.9.6",
     "@babel/preset-flow": "7.9.0",
     "babel-cli": "6.26.0",
     "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "25.4.0",
+    "babel-jest": "26.0.0",
     "babel-plugin-flow-runtime": "0.19.0",
     "codecov": "3.6.5",
-    "jest": "25.4.0",
-    "rollup": "2.7.3",
+    "jest": "26.0.0",
+    "rollup": "2.7.6",
     "rollup-plugin-babel": "4.4.0",
     "rollup-plugin-commonjs": "10.1.0",
     "rollup-plugin-node-resolve": "5.2.0"
