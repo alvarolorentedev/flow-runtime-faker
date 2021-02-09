@@ -31,20 +31,20 @@
     "access": "public"
   },
   "dependencies": {
-    "faker": "5.2.0",
+    "faker": "5.3.1",
     "flow-runtime": "0.17.0"
   },
   "devDependencies": {
-    "@babel/core": "7.12.10",
-    "@babel/preset-env": "7.12.11",
-    "@babel/preset-flow": "7.12.1",
+    "@babel/core": "7.12.13",
+    "@babel/preset-env": "7.12.13",
+    "@babel/preset-flow": "7.12.13",
     "babel-cli": "6.26.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "26.6.3",
     "babel-plugin-flow-runtime": "0.19.0",
     "codecov": "3.8.1",
     "jest": "26.6.3",
-    "rollup": "2.38.4",
+    "rollup": "2.38.5",
     "rollup-plugin-babel": "4.4.0",
     "rollup-plugin-commonjs": "10.1.0",
     "rollup-plugin-node-resolve": "5.2.0"
