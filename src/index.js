@@ -1,9 +1,9 @@
-import * as faker from 'faker'
+import { faker } from '@faker-js/faker'
 
 const mapper = {
-  "NumberType": ()=> faker.random.number(1000),
-  "StringType": ()=> faker.random.word(),
-  "BooleanType": () => faker.random.boolean(),
+  "NumberType": ()=> faker.datatype.number(1000),
+  "StringType": ()=> faker.datatype.string(),
+  "BooleanType": () => faker.datatype.boolean(),
   "VoidType": () => undefined,
   "NullLiteralType": () => null,
   "MixedType": () => mapper[["NumberType", "StringType","BooleanType","NullLiteralType"][Math.floor(Math.random()*4)]](),
@@ -13,7 +13,7 @@ const mapper = {
   "BooleanLiteralType": content => content.value,
   "UnionType": content => content.types.map(internalTypeSelector)[Math.floor(Math.random()*content.types.length)],
   "NullableType": content => [internalTypeSelector(content.type), null, undefined][Math.floor(Math.random()*3)],
-  "ArrayType": content => Array(faker.random.number(1000)).fill(0).map(_ => internalTypeSelector(content.elementType)),
+  "ArrayType": content => Array(faker.datatype.number(1000)).fill(0).map(_ => internalTypeSelector(content.elementType)),
   "TypeAlias": content => fake(content),
   "FunctionType": content => () => internalTypeSelector(content.returnType.type),
 }

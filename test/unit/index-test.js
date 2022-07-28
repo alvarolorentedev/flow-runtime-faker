@@ -1,5 +1,4 @@
 import fake from '../../src/index'
-import * as faker from 'faker'
 
 describe('flow generator', () => {
     test('should generate basic type for number', () => {

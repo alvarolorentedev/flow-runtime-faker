@@ -31,7 +31,7 @@
     "access": "public"
   },
   "dependencies": {
-    "faker": "5.4.0",
+    "@faker-js/faker": "^7.3.0",
     "flow-runtime": "0.17.0"
   },
   "devDependencies": {
